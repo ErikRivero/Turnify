@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Turnify</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/dashboard.js" defer></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+    defer>
+</script>
+
+<script src="js/menu.js" defer></script>
+    
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header class="border-bottom">
+        <nav class="container py-3 d-flex flex-wrap gap-3
+                    justify-content-between align-items-center">
+            <a class="marca text-decoration-none" href="dashboard.html">
+                Turnify<span>.</span>
+            </a>
+           
+
+            <div class="d-flex align-items-center gap-3">
+                
+
+                <span id="nombreUsuario" class="texto-secundario"></span>
+
+                <button id="btnSalir" class="btn btn-outline-light">
+                    Cerrar sesión
+                </button>
+            </div>
+        </nav>
+        <div id="menuPrincipal"></div>
+    </header>
+
+    <main class="container py-5 flex-grow-1">
+        <p class="etiqueta">ACTIVIDAD DE LA BARBERÍA</p>
+        <h1 class="mb-4">Dashboard</h1>
+
+        <form id="filtroForm" class="panel-resumen p-4 mb-4">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label for="desde" class="form-label">Desde</label>
+                    <input
+                        type="date"
+                        id="desde"
+                        class="form-control"
+                        required>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="hasta" class="form-label">Hasta</label>
+                    <input
+                        type="date"
+                        id="hasta"
+                        class="form-control"
+                        required>
+                </div>
+
+                <div class="col-md-4">
+                    <button
+                        id="btnConsultar"
+                        type="submit"
+                        class="btn btn-turnify w-100">
+                        Consultar
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div
+            id="mensaje"
+            class="alert d-none"
+            role="status"
+            aria-live="polite">
+        </div>
+
+        <section
+            id="indicadores"
+            class="row g-3"
+            aria-label="Resumen de actividad"
+            aria-busy="false">
+        </section>
+
+        <p class="texto-secundario small mt-4">
+            El importe corresponde a los precios pactados de los turnos
+            completados cuya fecha de inicio pertenece al período.
+            No descuenta gastos ni confirma cobros.
+        </p>
+    </main>
+
+    <footer class="border-top py-4">
+        <div class="container texto-secundario small">
+            Turnify · Trabajo Práctico Integrador
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Acerca de | Turnify</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"
+        defer>
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/menu.js" defer></script>
+    <script type="module" src="js/acerca.js"></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header class="border-bottom">
+        <nav class="container py-3 d-flex flex-wrap gap-3
+                    justify-content-between align-items-center">
+            <a class="marca text-decoration-none" href="dashboard.html">
+                Turnify<span>.</span>
+            </a>
+
+            <div class="d-flex align-items-center gap-3">
+                <span id="nombreUsuario" class="texto-secundario"></span>
+
+                <button id="btnSalir" class="btn btn-outline-light">
+                    Cerrar sesión
+                </button>
+            </div>
+        </nav>
+
+        <div id="menuPrincipal"></div>
+    </header>
+
+    <main class="container py-5 flex-grow-1">
+        <p class="etiqueta">EL PROYECTO</p>
+        <h1 class="mb-4">Acerca de Turnify</h1>
+
+        <section class="panel-resumen p-4 mb-4">
+            <h2 class="h4">Gestión de barbería</h2>
+
+            <p class="texto-secundario mb-0">
+                Turnify permite administrar clientes, barberos y servicios,
+                gestionar reservas y consultar estadísticas de actividad.
+                Fue desarrollado como Trabajo Práctico Integrador de
+                Programación II.
+            </p>
+        </section>
+
+        <section class="panel-resumen p-4">
+            <h2 class="h4">Responsables del desarrollo</h2>
+
+            <ul class="mb-0">
+                <li>Rivero Erik</li>
+                <li>Mercado Lautaro</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="border-top py-4">
+        <div class="container texto-secundario small">
+            Turnify · Trabajo Práctico Integrador
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Turnify.API/Turnify.API.csproj" />
+  <Project Path="Turnify.Core/Turnify.Core.csproj" />
+</Solution>

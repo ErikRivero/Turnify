@@ -1,0 +1,91 @@
+:root {
+    --fondo: #121416;
+    --superficie: #1d2125;
+    --texto: #f4f4f5;
+    --texto-secundario: #b8bec5;
+    --acento: #e8ba73;
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: system-ui, sans-serif;
+}
+
+.marca {
+    color: var(--texto);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.marca:hover {
+    color: var(--texto);
+}
+
+.marca span,
+.etiqueta {
+    color: var(--acento);
+}
+
+.etiqueta {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+}
+
+.portada {
+    margin-block: 2rem;
+}
+
+.texto-secundario {
+    color: var(--texto-secundario);
+}
+
+.panel-resumen {
+    background-color: var(--superficie);
+    border: 1px solid #373d44;
+    border-radius: 1rem;
+}
+
+.btn-turnify {
+    --bs-btn-color: #171717;
+    --bs-btn-bg: var(--acento);
+    --bs-btn-border-color: var(--acento);
+    --bs-btn-hover-color: #171717;
+    --bs-btn-hover-bg: #f1cc95;
+    --bs-btn-hover-border-color: #f1cc95;
+    --bs-btn-active-color: #171717;
+    --bs-btn-active-bg: #d9a85f;
+    --bs-btn-active-border-color: #d9a85f;
+    --bs-btn-focus-shadow-rgb: 232, 186, 115;
+    font-weight: 600;
+}
+
+.border-top,
+.border-bottom {
+    border-color: #373d44 !important;
+}
+#menuPrincipal {
+    border-top: 1px solid #373d44;
+}
+
+#menuPrincipal .nav-link {
+    color: var(--texto-secundario);
+    border-radius: 0.5rem;
+}
+
+#menuPrincipal .nav-link:hover,
+#menuPrincipal .nav-link:focus-visible {
+    color: var(--texto);
+    background-color: var(--superficie);
+}
+
+#menuPrincipal .nav-link.active {
+    color: var(--acento);
+    background-color: var(--superficie);
+}
+
+#menuPrincipal .dropdown-item.active {
+    color: #171717;
+    background-color: var(--acento);
+}

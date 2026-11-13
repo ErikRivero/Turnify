@@ -1,0 +1,38 @@
+# Compilación y dependencias
+[Bb]in/
+[Oo]bj/
+artifacts/
+node_modules/
+TestResults/
+coverage/
+
+# Configuración personal
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.log
+
+# Secretos locales
+secrets.json
+secrets.*.json
+appsettings.Local.json
+appsettings.*.Local.json
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.key
+*.pem
+
+# Datos y copias locales
+*.mdf
+*.ldf
+*.ndf
+*.bak
+*.zip
+.DS_Store
+Thumbs.db
+Desktop.ini

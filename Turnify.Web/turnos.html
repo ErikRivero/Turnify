@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Turnos | Turnify</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/turnos.js"></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+    defer>
+</script>
+
+<script src="js/menu.js" defer></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header class="border-bottom">
+        <nav class="container py-3 d-flex flex-wrap gap-3
+                    justify-content-between align-items-center">
+            <a class="marca text-decoration-none" href="dashboard.html">
+                Turnify<span>.</span>
+            </a>
+
+            <div class="d-flex flex-wrap align-items-center gap-3">
+                <a class="link-light" href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <span id="nombreUsuario" class="texto-secundario"></span>
+
+                <button id="btnSalir" class="btn btn-outline-light">
+                    Cerrar sesión
+                </button>
+            </div>
+        </nav>
+        <div id="menuPrincipal"></div>
+    </header>
+
+    <main class="container py-5 flex-grow-1">
+        <p class="etiqueta">TRANSACCIÓN</p>
+
+        <div class="d-flex flex-wrap gap-3 justify-content-between
+                    align-items-center mb-4">
+            <h1 class="mb-0">Turnos</h1>
+
+            <button id="btnActualizar" class="btn btn-turnify">
+                Actualizar listado
+            </button>
+        </div>
+
+        <div
+            id="mensaje"
+            class="alert d-none"
+            role="status"
+            aria-live="polite">
+        </div>
+        <section class="panel-resumen p-4 mb-4">
+    <h2 class="h4 mb-3">Nuevo turno</h2>
+
+    <form id="turnoForm">
+        <fieldset id="camposReserva" disabled>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label for="clienteId" class="form-label">
+                        Cliente
+                    </label>
+                    <select id="clienteId" class="form-select" required>
+                        <option value="">Seleccioná un cliente</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="barberoId" class="form-label">
+                        Barbero
+                    </label>
+                    <select id="barberoId" class="form-select" required>
+                        <option value="">Seleccioná un barbero</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="servicioId" class="form-label">
+                        Servicio
+                    </label>
+                    <select id="servicioId" class="form-select" required>
+                        <option value="">Seleccioná un servicio</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="fechaHoraInicio" class="form-label">
+                        Fecha y hora
+                    </label>
+                    <input
+                        id="fechaHoraInicio"
+                        type="datetime-local"
+                        class="form-control"
+                        step="60"
+                        required>
+                </div>
+
+                <div class="col-md-6">
+                    <p class="form-label">Servicio seleccionado</p>
+                    <p
+                        id="detalleServicio"
+                        class="texto-secundario mb-0"
+                        aria-live="polite">
+                        Seleccioná un servicio para ver su precio y duración.
+                    </p>
+                </div>
+
+                <div class="col-12">
+                    <button
+                        id="btnReservar"
+                        type="submit"
+                        class="btn btn-turnify">
+                        Reservar turno
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <section id="panelReprogramar" class="panel-resumen p-4 mb-4 d-none">
+    <h2 class="h4">Reprogramar turno</h2>
+
+    <p id="detalleReprogramar" class="texto-secundario"></p>
+
+    <form id="reprogramarForm">
+        <fieldset id="camposReprogramar">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-6">
+                    <label for="nuevaFecha" class="form-label">
+                        Nueva fecha y hora
+                    </label>
+
+                    <input
+                        id="nuevaFecha"
+                        type="datetime-local"
+                        class="form-control"
+                        step="60"
+                        required>
+                </div>
+
+                <div class="col-md-6 d-flex flex-wrap gap-2">
+                    <button type="submit" class="btn btn-turnify">
+                        Guardar nuevo horario
+                    </button>
+
+                    <button
+                        id="btnCancelarReprogramacion"
+                        type="button"
+                        class="btn btn-outline-light">
+                        Cancelar edición
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</section>
+</section>
+
+        <div class="panel-resumen p-3">
+            <div class="table-responsive">
+                <table class="table table-dark table-hover align-middle mb-0">
+                    <caption class="texto-secundario">
+                        Todos los turnos, ordenados por fecha de inicio.
+                    </caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Barbero</th>
+                            <th scope="col">Servicio</th>
+                            <th scope="col">Inicio</th>
+                            <th scope="col">Finalización</th>
+                            <th scope="col" class="text-end">Precio pactado</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablaTurnos"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
